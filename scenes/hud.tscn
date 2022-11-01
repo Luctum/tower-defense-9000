@@ -1,0 +1,109 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://scenes/hearty_strip6.png" type="Texture" id=1]
+[ext_resource path="res://scenes/hud.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 256, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 320, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "HeartBeat",
+"speed": 10.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=8]
+
+[sub_resource type="Gradient" id=9]
+offsets = PoolRealArray( 0.309677, 0.967742 )
+colors = PoolColorArray( 0.483407, 0.483407, 0.483407, 1, 0.545907, 0.545907, 0.545907, 1 )
+
+[sub_resource type="GradientTexture" id=10]
+gradient = SubResource( 9 )
+
+[sub_resource type="Gradient" id=11]
+colors = PoolColorArray( 0.649414, 0.649414, 0.649414, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture2D" id=12]
+gradient = SubResource( 11 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="TopBar" type="ColorRect" parent="HUD"]
+self_modulate = Color( 1, 1, 1, 0.878431 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = -1.0
+margin_right = 4.0
+margin_bottom = -567.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="HUD/TopBar"]
+position = Vector2( 37, 18 )
+scale = Vector2( 0.570313, 0.593591 )
+z_index = 1
+frames = SubResource( 7 )
+animation = "HeartBeat"
+frame = 2
+playing = true
+
+[node name="MaxHealth" type="ColorRect" parent="HUD/TopBar"]
+modulate = Color( 1, 1, 1, 0.741176 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 71.0
+margin_top = 9.0
+margin_right = -15.0
+margin_bottom = -7.0
+color = Color( 0.266667, 0.0666667, 0, 1 )
+
+[node name="CurrentHealth" type="TextureProgress" parent="HUD/TopBar"]
+material = SubResource( 8 )
+anchor_top = -0.432
+anchor_right = 1.045
+anchor_bottom = 1.841
+margin_left = 75.0
+margin_top = 25.688
+margin_right = -66.1251
+margin_bottom = -38.594
+value = 100.0
+texture_under = SubResource( 10 )
+texture_progress = SubResource( 12 )
+fill_mode = 1
+tint_progress = Color( 1, 0.117647, 0, 1 )
+nine_patch_stretch = true
+
+[node name="Tween" type="Tween" parent="HUD/TopBar/CurrentHealth"]
