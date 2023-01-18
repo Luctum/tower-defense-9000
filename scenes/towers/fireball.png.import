@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/fireball.png-de342daaf8cac78238bcc0eb1a61c78c.image"
+
+[deps]
+
+source_file="res://scenes/towers/fireball.png"
+dest_files=[ "res://.import/fireball.png-de342daaf8cac78238bcc0eb1a61c78c.image" ]
+
+[params]
+

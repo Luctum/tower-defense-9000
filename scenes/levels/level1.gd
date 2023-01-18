@@ -24,4 +24,3 @@ func _on_player_hit():
 
 func show_title():
 	$CanvasModulate/AnimationPlayer.play("level1_intro")
-

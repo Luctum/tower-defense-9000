@@ -729,7 +729,7 @@ margin_top = 123.0
 margin_right = 848.0
 margin_bottom = 446.0
 custom_fonts/font = SubResource( 5 )
-text = "LEVEL 1 
+text = "LEVEL 1
 Chauve qui peut"
 align = 1
 percent_visible = 0.381

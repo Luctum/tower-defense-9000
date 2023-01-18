@@ -1,2 +1,4 @@
-extends Node2D
+extends Node
 
+func _ready():
+	add_to_group("towers")
